@@ -64,7 +64,7 @@ console.log(user.name);      // dot notaion
 console.log(user['name']);     // bracket notaion
 
 // ============================================================================================
-// Reference Data types - Array
+// 2.5 Reference Data types - Array
 // why Array uses ? What do those items called inside an Array ? 
 // Ans: To store a list of data like object, string or number. The items inside an array are called elements.
 // What is an Array Index ?
@@ -74,7 +74,7 @@ console.log(user['name']);     // bracket notaion
 // Ans: Array is an Object data type. If something is an Object, that means obviously it has some Properties and Methods.
 
 // ============================================================================================
-// Reference Data types - Function
+// 2.6 Reference Data types - Function
 // What is Function and describe its all component ?
 // Ans: Function is a reusable block of code that performs a specific task or set of tasks. 
 // Functions allow you to encapsulate code, making it modular and easier to manage. 
@@ -104,3 +104,11 @@ console.log(user['name']);     // bracket notaion
 //    - Functions without a name, often use as arguments to other functions or assigned to variables.
       Example: const sum = function (a, b) {return a + b};
 
+// ===============================================================================================
+// 2.7 Template Literals
+// Waht is Template Literals in JS ?
+// Ans: Template Literals are a feature introduced in ECMAScript6 that allows for more flexible string interpolation in JS.
+// They are enclosed by backticks (`) and can contain placeholders `${expression}` that are replaced with evaluated value of the expression.
+
+// Template Literals also support multi-line strings, making it easier to work with multiline text.
+// Template literals also allow for expressions and functions. Template literals provide a concise and readable way to work with strings and expressions in JavaScript.
