@@ -119,7 +119,8 @@ console.log(user['name']);     // bracket notaion
 
 // ========================================================== Conditional Statements ==================================
 // ====================================================================================================================
-// Problem - 01: You need to determine whether a given year is a leap year or not.
+// Problem - 01 
+// (i) You need to determine whether a given year is a leap year or not.
 function leapYear(year) {
     if(year % 400 === 0){
         return true;
@@ -134,7 +135,7 @@ console.log(leapYear(1900));
 console.log(leapYear(2000));
 // Concept: A leap year is divisible by 4, except if divisible by 100 unless also divisible by 400
 
-// Problem - 02: You are given three numbers. You need to determine whether you can form a valid triangle with these numbers as side lengths.
+// (ii) You are given three numbers. You need to determine whether you can form a valid triangle with these numbers as side lengths.
 function isValidTriangle(a, b, c){
     if(a + b > c && b + c > a && c+a > b){
         return true;
@@ -145,7 +146,7 @@ function isValidTriangle(a, b, c){
 console.log(isValidTriangle(3, 4, 5));
 console.log(isValidTriangle(1, 2, 3));
 
-// Problem - 03: Write a function that takes a string representing a traffic light color ("red", "yellow", "green") and returns what action a driver should take (e.g., "Stop", "Slow down", "Go").
+// (iii) Write a function that takes a string representing a traffic light color ("red", "yellow", "green") and returns what action a driver should take (e.g., "Stop", "Slow down", "Go").
 function trafficLightAction(color) {
     switch(color) {
         case "red":
@@ -162,7 +163,7 @@ console.log(trafficLightAction("red"));
 console.log(trafficLightAction("green"));
 console.log(trafficLightAction("blue"));
 
-// Problem - 04: Write a function that takes two numbers and a string ("+", "-", "*", "/") representing an operation, and returns the result of that operation.
+// (iv) Write a function that takes two numbers and a string ("+", "-", "*", "/") representing an operation, and returns the result of that operation.
 function calculator(num1, num2, operation){
     switch(operation) {
         case "+":
@@ -180,7 +181,7 @@ function calculator(num1, num2, operation){
 console.log(calculator(5, 3, "/"));
 console.log(calculator(5, 0, "/"));
 
-// Problem - 04: Write a function that takes three numbers and returns the largest one using the ternary operator.
+// (v) Write a function that takes three numbers and returns the largest one using the ternary operator.
 function findLargerst(a, b, c) {
     return a > b
         ? (a > c ? a : c)
@@ -188,7 +189,8 @@ function findLargerst(a, b, c) {
 }
 console.log(findLargerst(3, 8, 5));
 
-// Problem - 05 : You are given a student's score and a boolean value indicating if the student has completed bonus assignments. Based on the score and bonus, determine the grade:
+// Problem - 02 : 
+// (i) You are given a student's score and a boolean value indicating if the student has completed bonus assignments. Based on the score and bonus, determine the grade:
 // - If the score is 90 or above and the student completed the bonus, return "A+"
 // - If the score is 90 or above without bonus, return "A"
 // - If the score is between 80 and 89, return "B"
@@ -209,7 +211,7 @@ function getGrade(score, hasBonus){
 console.log(getGrade(95, false)); 
 console.log(getGrade(55, false)); 
 
-// Problem - 06: You need to determine the ticket price for a movie based on the customer's age and whether it’s a weekday or weekend. The price rules are:
+// (ii) You need to determine the ticket price for a movie based on the customer's age and whether it’s a weekday or weekend. The price rules are:
 // - Children (under 12): $8 on weekdays, $10 on weekends.
 // - Seniors (65 and above): $6 on weekdays, $8 on weekends.
 // - Adults: $10 on weekdays, $12 on weekends.
@@ -223,7 +225,7 @@ function getTicektPrice(age, isWeekend){
 console.log(getTicektPrice(10, true));
 // There is something mistake
 
-// Problem - 07 : Create a function that calculates the final price after applying discounts. The discounts are applied based on three conditions:
+// (iii) Create a function that calculates the final price after applying discounts. The discounts are applied based on three conditions:
 // - Membership level: Gold members get a 20% discount, Silver members get 10%, and others get no discount.
 // - If the order is above $100, add an extra 5% discount.
 // - If it's Black Friday, add another 10% discount on top of everything else.
@@ -241,7 +243,7 @@ function CalculateFinalPrice(price, membership, isBlackFriday) {
 }
 console.log(CalculateFinalPrice(50, "Gold", false));
 
-// Problem - 08: Given three side lengths of a triangle, determine the type of triangle:
+// (iv) Given three side lengths of a triangle, determine the type of triangle:
 // - If all sides are equal, it's an Equilateral triangle.
 // - If two sides are equal, it's an Isosceles triangle.
 // - If all sides are different, it's a Scalene triangle.
@@ -254,4 +256,186 @@ function triangleType(a, b, c) {
         : "Not a triangle"
 } 
 console.log(triangleType(1, 2, 3));
+
+// Problem - 03: 
+// (i) Find the sum of the numbers from 1 to 10 using for loop
+let sum = 0;
+for(let i = 1; i <= 10; i++){
+    sum = sum + i;
+}
+console.log('Expected result:', sum);
+
+// (ii) Find the even and odd numbers from 1 to 20 using for loop both iterative and recursive way 
+// // iterative way
+let evenNumbers = [];
+let oddNumbers = [];
+for(let i = 1; i <= 20; i++){
+    i % 2 === 0 ? evenNumbers.push(i) : oddNumbers.push(i);
+}
+console.log(evenNumbers);
+console.log(oddNumbers);
+
+// // recursive way
+let evenNumbers = [];
+let oddNumbers = [];
+for(let i = 20; i >= 1; i--){
+    i % 2 === 0 ? evenNumbers.push(i) : oddNumbers.push(i);
+}
+console.log(evenNumbers);
+console.log(oddNumbers);
+
+// (iii) Find the even and odd numbers from 1 to 20 using while loop both iterative and recursive way
+// // iterative way
+let i = 1;
+let evenNumbers = [];
+let oddNumbers = [];
+while(i <= 20){
+    i % 2 === 0 ? evenNumbers.push(i) : oddNumbers.push(i);
+    i++;
+}
+console.log(evenNumbers);
+console.log(oddNumbers);
+
+// // recursive way
+let i = 20;
+let evenNumbers = [];
+let oddNumbers = [];
+while(i >= 1){
+    i % 2 === 0 ? evenNumbers.push(i) : oddNumbers.push(i);
+    i--;
+}
+console.log(evenNumbers);
+console.log(oddNumbers);
+
+// Problem - 04: (for loop)
+// (i) Give me the list of numbers between 1 to 30 divisible by 5 both iterative and recursive way
+// // iterative way
+let divisByFive = [];
+for(let i = 1; i <= 30; i++){
+    i % 5 === 0 ? divesByFive.push(i) : null;
+}
+console.log(divisByFive);
+
+// // recursive way
+let divisByFive = [];
+for(let i = 30; i >= 1; i--){
+    i % 5 === 0 ? divisByFive.push(i) : null;
+}
+// console.log(divisByFive);
+// (ii) Give me the list of numbers between 1 to 30 divisible by 3 both iterative and recursive way
+// (iii) Give me the list of numbers between 1 to 30 divisible by 3 or 5 both iterative and recursive way 
+// // iterative way
+let divisBoth = [];
+for(let i = 1; i <= 30; i++){
+    if(i % 3 === 0 || i % 5 === 0){
+        divisBoth.push(i);
+    }
+}
+console.log(divisBoth);
+// (iv) Give me the sum of the numbers from 1 to 30 divisible by 3 by two way 
+// // iterative way
+let sum = 0;
+for(let i = 1; i <= 30; i++){
+    if(i % 3 === 0){
+        sum = sum + i
+    }
+}
+console.log(sum);
+// (v) Give me the sum of the numbers from 1 to 30 divisible by 5 by two way
+
+// Problem - 05: (while loop)
+// (i) Find all the odd numbers from 61 to 100.
+let i = 61;
+let oddNumbers = [];
+while(i <= 100){
+    i % 2 === 1 ? oddNumbers.push(i) : null; 
+    i++;
+}
+console.log(oddNumbers);
+// (ii) Find all the even numbers from 78 to 98.
+// (iii) Display sum of all the odd numbers from 91 to 129.
+let i = 91;
+let sum = 0;
+while(i <= 129){
+    if(i % 2 === 1){
+        sum = sum + i;
+    }
+    i++;
+}
+console.log(sum);
+// (iv) Display sum of all the even numbers from 51 to 85.
+let i = 51;
+let sum = 0;
+while(i <= 85){
+    if(i % 2 === 0){
+        sum = sum + i;
+    }
+    i++;
+}
+console.log(sum);
+// (v) Generate a multiplication table for number 9
+for(let i = 1; i <= 10; i++){
+    let table = `9 X ${i} = ${9 * i}`;
+    console.log(table);
+}
+// (vi) Implement a countdown timer that counts down from 81 to 65.
+let count = 81;
+let countdown = setInterval(() => {
+    console.log(count);
+    count--;
+    if(count < 65){
+        clearInterval(countdown);  // Stop the timer when it reaches 65
+    }
+}, 1000); // Countdown interval is set to 1000ms (1 second)
+
+// Prolem - 06: 
+// (i) Write a program that takes an integer and repeatedly sums its digits until the result is a single digit. Use a do-while loop.
+let number = 9875; // Start with 9875
+do {
+        let sum = 0;
+        // While there are still digits in the number
+        while (number > 0) {
+                sum += number % 10; // Add the last digit to sum
+                number = Math.floor(number / 10); // Remove the last digit
+        }
+        number = sum; // Replace number with the sum of its digits
+} while (number >= 10); // Repeat if sum is more than one digit
+
+console.log(number);  // Output: 2
+
+// (ii) The task is to check the given number is prime or not 
+function isPrime(num){
+    let primeStatus = true;
+    for(let i = 2; i <= num - 1; i++){
+        if(num % i === 0){
+            primeStatus = false;
+            break;
+        }
+    }
+    return primeStatus;
+}
+console.log(isPrime(11));
+
+// (iii) The task is to find the first prime number greater than a given number using a do-while loop.
+let num = 10;  // Starting with 10
+// Function to check if a number is prime
+function isPrime(n) {
+        // Iterate from 2 to the square root of n (optimized approach)
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) {
+                        return false;  // If divisible by i, it's not prime
+                }
+        }
+        return n > 1;  // n is prime if greater than 1 and not divisible by any number
+}
+
+// Loop to find the next prime number
+do {
+        num++;  // Increment the number
+} while (!isPrime(num));  // Keep looping until you find a prime number
+
+console.log(num);  // Output: 11 (First prime number greater than 10)
+// Note: ১. কোনো সংখ্যা মৌলিক হওয়ার শর্ত হচ্ছে ওই সংখ্যা এবং ১ ছাড়া অন্য কোনো সংখ্যা দিয়ে ডিভিজিবল (বিভাজ্য) হতে পারবে না। 
+// ২. এখন কথা হচ্ছে কোনো সংখ্যা তো আর তার চেয়ে বড় কোনো সংখ্যা দ্বারা বিভাজিত হয় না, তার মানে সেই সংখ্যাটাকে তার চেয়ে ছোট কোন সংখ্যা দিয়ে ভাগ করলে ভাগশেষ জিরো পাওয়া যাবে। এজন্য লুপের কন্ডিশনে num - 1 ব্যবহার করেছি মানে ওই সংখ্যার ছোট সব সংখ্যা দিয়ে চেক করে দেখছি যে কোনো টা দিয়ে বিভাজ্য যায় কি না। এটা একটা উপায়। 
+// ৩. মৌলিক সংখ্যা চেক করতে আমরা সেই সংখ্যাটার ছোট সবগুলো সংখ্যা দিয়ে (১ ব্যাতিত) চেক করে দেখছি কোনোটা দিয়ে বিভাজ্য যায় কি না। এখন আমরা চাইলে এটা ইফিশিয়েন্টভাবে করতে পারি, যেমন: ২০ কে চেক করতে চাই, এখন ২০ কে স্কয়ার রুট করে যা পাবে ৪.৪২৪, এখন আমরা যদি ৪ পর্যন্ত কন্ডিশন চেক করি তাহলেই হবে, কারণ (১, ২০), (৪, ৫), (৫, ২) এই সংখ্যা কটি দিয়েই ২০ ভাগ যায় অর্থাৎ ভাগশেষ জিরো পাওয়া যায়। খেয়াল করলে দেখবো ৪ এর পরবতী যে সংখ্যা গুলো দিয়ে ২০ ভাগ যাচ্ছে সেই সব গুলোই ৪ এর মধ্যে আছে যেমন ১, ৪, ২ অর্থাৎ এগুলো না থাকলে পরবর্তী সংখ্যাও থাকতো না। 
 
