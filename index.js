@@ -146,7 +146,31 @@ function isValidTriangle(a, b, c){
 console.log(isValidTriangle(3, 4, 5));
 console.log(isValidTriangle(1, 2, 3));
 
-// (iii) Write a function that takes a string representing a traffic light color ("red", "yellow", "green") and returns what action a driver should take (e.g., "Stop", "Slow down", "Go").
+// (iii) Write a function that accepts a single character and:
+// - Checks if it's an alphabet.
+// - If it’s an alphabet, check if it’s uppercase or lowercase.
+// - If it’s a digit, check if it’s even or odd.
+// - If it’s a special character, just display the character.
+    function checkCharacter(char) {
+        let result;
+        if(char >= 'A' && char <= 'Z'){
+            result = `${char} is an Uppercase Character`;
+        } else if(char >= 'a' && char <= 'z'){
+            result = `${char} is a lowercase character`;
+        } else if(char >= '0' && char <= '9'){
+            let isEven = (parseInt(char) % 2 === 0);
+            console.log(`${isEven ? "Even number" : "Odd number"}`)
+        } else{
+            result = (`${char} is a speacial character`);
+        }
+        return result;
+    }
+    console.log(checkCharacter('A'));
+    console.log(checkCharacter('g'));
+    console.log(checkCharacter('5'));
+    console.log(checkCharacter('%'));
+
+// (iv) Write a function that takes a string representing a traffic light color ("red", "yellow", "green") and returns what action a driver should take (e.g., "Stop", "Slow down", "Go").
 function trafficLightAction(color) {
     switch(color) {
         case "red":
@@ -163,7 +187,7 @@ console.log(trafficLightAction("red"));
 console.log(trafficLightAction("green"));
 console.log(trafficLightAction("blue"));
 
-// (iv) Write a function that takes two numbers and a string ("+", "-", "*", "/") representing an operation, and returns the result of that operation.
+// (v) Write a function that takes two numbers and a string ("+", "-", "*", "/") representing an operation, and returns the result of that operation.
 function calculator(num1, num2, operation){
     switch(operation) {
         case "+":
@@ -181,7 +205,7 @@ function calculator(num1, num2, operation){
 console.log(calculator(5, 3, "/"));
 console.log(calculator(5, 0, "/"));
 
-// (v) Write a function that takes three numbers and returns the largest one using the ternary operator.
+// (vi) Write a function that takes three numbers and returns the largest one using the ternary operator.
 function findLargerst(a, b, c) {
     return a > b
         ? (a > c ? a : c)
