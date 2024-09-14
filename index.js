@@ -463,3 +463,59 @@ console.log(num);  // Output: 11 (First prime number greater than 10)
 // ২. এখন কথা হচ্ছে কোনো সংখ্যা তো আর তার চেয়ে বড় কোনো সংখ্যা দ্বারা বিভাজিত হয় না, তার মানে সেই সংখ্যাটাকে তার চেয়ে ছোট কোন সংখ্যা দিয়ে ভাগ করলে ভাগশেষ জিরো পাওয়া যাবে। এজন্য লুপের কন্ডিশনে num - 1 ব্যবহার করেছি মানে ওই সংখ্যার ছোট সব সংখ্যা দিয়ে চেক করে দেখছি যে কোনো টা দিয়ে বিভাজ্য যায় কি না। এটা একটা উপায়। 
 // ৩. মৌলিক সংখ্যা চেক করতে আমরা সেই সংখ্যাটার ছোট সবগুলো সংখ্যা দিয়ে (১ ব্যাতিত) চেক করে দেখছি কোনোটা দিয়ে বিভাজ্য যায় কি না। এখন আমরা চাইলে এটা ইফিশিয়েন্টভাবে করতে পারি, যেমন: ২০ কে চেক করতে চাই, এখন ২০ কে স্কয়ার রুট করে যা পাবে ৪.৪২৪, এখন আমরা যদি ৪ পর্যন্ত কন্ডিশন চেক করি তাহলেই হবে, কারণ (১, ২০), (৪, ৫), (৫, ২) এই সংখ্যা কটি দিয়েই ২০ ভাগ যায় অর্থাৎ ভাগশেষ জিরো পাওয়া যায়। খেয়াল করলে দেখবো ৪ এর পরবতী যে সংখ্যা গুলো দিয়ে ২০ ভাগ যাচ্ছে সেই সব গুলোই ৪ এর মধ্যে আছে যেমন ১, ৪, ২ অর্থাৎ এগুলো না থাকলে পরবর্তী সংখ্যাও থাকতো না। 
 
+// Problem - 07:
+// (i) অন্যান্য লুপ গুলোর সাথে "for in" এবং "for of" লুপের পার্থক্য কি ? এবং কোন লুপ কোন ক্ষেত্রে ব্যবহার করা হয় ?
+// উত্তরঃ অন্যান্য লুপ গুলোর ক্ষেত্রে আমরা দেখেছি যে তিনটা জিনিস কমন ছিল যেমন: loop variable initialization, loop breaking condition, iteration. কিন্তু এই দুটো লুপের ক্ষেত্রে এগুলো প্রয়োজন নেই। এগুলো আটোমেটিকালি কোন একটা Array বা  Object কে traverse করে। Array ট্রাভার্স করার জন্য ব্যবহৃত হয় for of loop এবং  Object ট্রাভার্স করার জন্য for in loop. 
+// (ii) Write a function that takes an object and prints out all of its keys.
+const car = {
+    brand: 'Toyota',
+    model: 'Corolla',
+    year: 2020
+};
+for(let key in car){
+    console.log(key);
+}
+
+// (iii) Write a function that takes an array of numbers and returns the sum of all the numbers.
+const numbers = [1, 2, 3, 4, 5];
+for(let num of numbers){
+    console.log(num);
+}
+
+// (iv) Why "break" and "continue" uses ?
+// Ans: break and continue are used in loops to control the flow of iteration, such as, break uses to break iteration and continue uses to skip iteration. break ব্যবহারে ডিরেক্টলি লুপটা ফোর্সফুলি ব্রেক হয়ে ইটারেশন বন্ধ হয়ে যায় এবং বাহিরে চলে আসে। আর continue ব্যবহারে লুপের কারেন্ট ইটারেশনটা ফোর্সফুলি স্কিপ করে।  
+
+// (v) Start looping from 1 to 20 and skip for the iteration of all odd numbers using continue
+        for(let i = 1; i <= 20; i++){
+            if(i % 2 === 1){
+                continue;
+            }
+            console.log("all even numbers", i);
+        }
+// (vi) Start looping from 1 to 50 and skip for the iteration of the numbers divisible by 5 using continue
+        for(let i = 1; i <= 50; i++){
+            if(i % 5 === 0){
+                continue;
+            }
+            console.log(i);
+        }
+// (vii) Write a loop 1 to 10. Use break to exit the loop once you find 5.
+        for(let i = 1; i <= 10; i++){
+            if(i === 5){
+                break;
+            }
+            console.log(i);
+        }
+// (viii) Write a while loop that adds numbers starting from 1, but stops (using break) as soon as the sum reaches or exceeds 100
+        let i = 1;
+        let sum = 0;
+        while(i <= 100){
+            sum = sum + i;
+            if(sum === 100){
+                break;
+            } 
+            console.log(i);
+            i++;
+        }
+// (ix) যদি লুপের কন্ডিশন এবং ইনক্রিমেন্ট ডিক্রিমেন্ট সঠিকভাবে না দেই তাহলে কি হতে পারে ?
+// উত্তরঃ Infinity loop এ পরে যেতে পারি। 
