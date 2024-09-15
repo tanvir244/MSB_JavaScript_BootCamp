@@ -213,6 +213,10 @@ function findLargerst(a, b, c) {
 }
 console.log(findLargerst(3, 8, 5));
 
+
+
+
+
 // Problem - 02 : 
 // (i) You are given a student's score and a boolean value indicating if the student has completed bonus assignments. Based on the score and bonus, determine the grade:
 // - If the score is 90 or above and the student completed the bonus, return "A+"
@@ -281,6 +285,9 @@ function triangleType(a, b, c) {
 } 
 console.log(triangleType(1, 2, 3));
 
+
+
+
 // Problem - 03: 
 // (i) Find the sum of the numbers from 1 to 10 using for loop
 let sum = 0;
@@ -331,6 +338,9 @@ while(i >= 1){
 console.log(evenNumbers);
 console.log(oddNumbers);
 
+
+
+
 // Problem - 04: (for loop)
 // (i) Give me the list of numbers between 1 to 30 divisible by 5 both iterative and recursive way
 // // iterative way
@@ -366,6 +376,9 @@ for(let i = 1; i <= 30; i++){
 }
 console.log(sum);
 // (v) Give me the sum of the numbers from 1 to 30 divisible by 5 by two way
+
+
+
 
 // Problem - 05: (while loop)
 // (i) Find all the odd numbers from 61 to 100.
@@ -411,6 +424,9 @@ let countdown = setInterval(() => {
         clearInterval(countdown);  // Stop the timer when it reaches 65
     }
 }, 1000); // Countdown interval is set to 1000ms (1 second)
+
+
+
 
 // Prolem - 06: 
 // (i) Write a program that takes an integer and repeatedly sums its digits until the result is a single digit. Use a do-while loop.
@@ -462,6 +478,9 @@ console.log(num);  // Output: 11 (First prime number greater than 10)
 // Note: ১. কোনো সংখ্যা মৌলিক হওয়ার শর্ত হচ্ছে ওই সংখ্যা এবং ১ ছাড়া অন্য কোনো সংখ্যা দিয়ে ডিভিজিবল (বিভাজ্য) হতে পারবে না। 
 // ২. এখন কথা হচ্ছে কোনো সংখ্যা তো আর তার চেয়ে বড় কোনো সংখ্যা দ্বারা বিভাজিত হয় না, তার মানে সেই সংখ্যাটাকে তার চেয়ে ছোট কোন সংখ্যা দিয়ে ভাগ করলে ভাগশেষ জিরো পাওয়া যাবে। এজন্য লুপের কন্ডিশনে num - 1 ব্যবহার করেছি মানে ওই সংখ্যার ছোট সব সংখ্যা দিয়ে চেক করে দেখছি যে কোনো টা দিয়ে বিভাজ্য যায় কি না। এটা একটা উপায়। 
 // ৩. মৌলিক সংখ্যা চেক করতে আমরা সেই সংখ্যাটার ছোট সবগুলো সংখ্যা দিয়ে (১ ব্যাতিত) চেক করে দেখছি কোনোটা দিয়ে বিভাজ্য যায় কি না। এখন আমরা চাইলে এটা ইফিশিয়েন্টভাবে করতে পারি, যেমন: ২০ কে চেক করতে চাই, এখন ২০ কে স্কয়ার রুট করে যা পাবে ৪.৪২৪, এখন আমরা যদি ৪ পর্যন্ত কন্ডিশন চেক করি তাহলেই হবে, কারণ (১, ২০), (৪, ৫), (৫, ২) এই সংখ্যা কটি দিয়েই ২০ ভাগ যায় অর্থাৎ ভাগশেষ জিরো পাওয়া যায়। খেয়াল করলে দেখবো ৪ এর পরবতী যে সংখ্যা গুলো দিয়ে ২০ ভাগ যাচ্ছে সেই সব গুলোই ৪ এর মধ্যে আছে যেমন ১, ৪, ২ অর্থাৎ এগুলো না থাকলে পরবর্তী সংখ্যাও থাকতো না। 
+
+
+
 
 // Problem - 07:
 // (i) অন্যান্য লুপ গুলোর সাথে "for in" এবং "for of" লুপের পার্থক্য কি ? এবং কোন লুপ কোন ক্ষেত্রে ব্যবহার করা হয় ?
@@ -519,3 +538,95 @@ for(let num of numbers){
         }
 // (ix) যদি লুপের কন্ডিশন এবং ইনক্রিমেন্ট ডিক্রিমেন্ট সঠিকভাবে না দেই তাহলে কি হতে পারে ?
 // উত্তরঃ Infinity loop এ পরে যেতে পারি। 
+
+
+
+// Problem - 08
+// (i) Write a function that takes a string as input and:
+    // - Finds the middle character of the string using charAt().
+    // - If the middle character is an alphabet, determine if it's uppercase or lowercase using charCodeAt().
+    // - Convert the character to the opposite case using either toUpperCase() or toLowerCase().
+    function middleCharacter(str) {
+        let middleIndex = Math.floor(str.length / 2);
+        let middleChar = str.charAt(middleIndex);
+
+        if(middleChar.charCodeAt(0) >= 65 && middleChar.charCodeAt(0) <= 90){
+            console.log(`{${middleChar} is uppercase. Converting to lowercase : ${middleChar.toLowerCase()}}`);
+        } else if(middleChar.charCodeAt(0) >= 97 && middleChar.charCodeAt(0) <= 122){
+            console.log(`{${middleChar} is lowercase. Converting to uppercase: ${middleChar.toUpperCase()}}`)
+        } else {
+            console.log(`{${middleChar} is not an alphabet.}`)
+        }
+    }
+    middleCharacter("hello");
+    middleCharacter("WORLD");
+    middleCharacter('1234');
+
+    // (ii) Write a function that takes a string and capitalizes the first character using charAt() and toUpperCase(), leaving the rest of the string unchanged.
+    function capitalizeFirst(str) {
+        if(str.length === 0) return '';
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+    console.log(capitalizeFirst("hello"));
+    console.log(capitalizeFirst("javascript"));
+
+    // (iii) Write a function that takes a string and counts how many uppercase and lowercase letters it contains using charCodeAt() and toUpperCase()/toLowerCase().
+        function countUpperLower(str) {
+            let upperCount = 0;
+            let lowerCount = 0;
+
+            for(let i = 0; i < str.length; i++){
+                let char = str.charAt(i);
+                let code = char.charCodeAt(0);
+
+                if(code >= 65 && code <= 90){
+                    upperCount++;
+                } else if(code >= 97 && code <= 122){
+                    lowerCount++;
+                }
+            }
+            console.log(`Total Uppercase: ${upperCount}, Total Lowercase: ${lowerCount}`);
+        }
+        countUpperLower("HelloWorld");
+        countUpperLower("JavaScript");
+
+    // (iv) Write a function that takes a string and converts the even-indexed characters to uppercase and the odd-indexed characters to lowercase.
+            function convertEvenOddCase(str) {
+                let newStr = "";
+
+                for(let i = 0; i < str.length; i++){
+                    if(i % 2 === 0){
+                        newStr += str.charAt(i).toUpperCase(); //The += operator appends the result of str.charAt(i).toUpperCase() to the string newStr. string concatenation operatior (+=)
+                    } else {
+                        newStr += str.charAt(i).toLowerCase();
+                    }
+                }
+                console.log(newStr);
+            }
+            convertEvenOddCase("Environment");
+
+    // (v) Write a function that takes a string and returns the sum of the ASCII values of all the characters using charCodeAt(). (সবগুলো লেটারের এসকি ভ্যালু গুলো যোগ করতে হবে)
+            function sumAsciiValues(str) {
+                let sum = 0;
+                for(let i = 0; i < str.length; i++){
+                    sum += str.charCodeAt(i);
+                }
+                console.log(sum);
+            }
+            sumAsciiValues("ABC");
+
+    // (vi) Write a function that takes a string and swaps the case of each character. If the character is uppercase, convert it to lowercase, and if it’s lowercase, convert it to uppercase.
+            function swapCase(str) {
+                let swapped = '';
+                for(let i = 0; i < str.length; i++){
+                    let char = str.charAt(i);
+                    if(char === char.toUpperCase()){
+                        swapped += char.toLowerCase();
+                    } else {
+                        swapped += char.toUpperCase();
+                    }
+                }
+                console.log(swapped);
+            }
+            swapCase("HelloWorld");
+            swapCase("JavaScript");
