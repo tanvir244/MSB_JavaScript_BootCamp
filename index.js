@@ -630,3 +630,37 @@ for(let num of numbers){
             }
             swapCase("HelloWorld");
             swapCase("JavaScript");
+
+// Problem - 09
+// (i) Given the sentence "I am a web developer", check if the word "Developer" is present.
+const sentence = "I am a web developer";
+console.log(sentence.includes("Developer"));
+
+// (ii)  Given the URL "https://example.com", check if it starts with "https://".
+const url = "https://example.com";
+console.log(url.startsWith("https://"))
+
+// (iii) Given the filename "image.png", check if it ends with .png.
+const filename = "image.png";
+console.log(filename.endsWith(".png"));
+
+// (iv) Given the array ["red", "green", "blue", "yellow"], check if "blue" is present.
+const colors = ["red", "green", "blue", "yellow"];
+console.log(colors.includes("blue"));
+
+// (v) Given the string "Hello, world!", check if the first 5 characters are "Hello".
+const greeting = "Hello, world!";
+console.log(greeting.startsWith("Hello, wor", 0));
+
+// (vi) Given the array ["dog", "catapult", "elephant"], check if any word contains "cat".
+const words = ["dog", "catapult", "elephant"];
+let found = words.some(word => word.includes("cat"));
+
+// (vii) Write a function that checks if the string "abcdef" ends with "de" within the first 5 characters.
+const str = "abcdef";
+console.log(str.endsWith("de", 5));
+
+// (viii) Write a function that checks if both "html" and "css" are included in a skills array.
+const skills = ["html", "javascript", "css"];
+const includesBoth = skills.includes("html") && skills.includes("css");
+console.log(includesBoth);
