@@ -664,3 +664,83 @@ console.log(str.endsWith("de", 5));
 const skills = ["html", "javascript", "css"];
 const includesBoth = skills.includes("html") && skills.includes("css");
 console.log(includesBoth);
+
+// Problem - 10
+// (i) search method এবং indexOf method - এর কাজ কি ? এবং এদের মধ্যে পার্থক্য কি ?
+// ধরা যাক কোনো একটা স্টিং আছে, ওই স্ট্রিং এর মধ্যে একই occurence মাল্টিপল বার আছে। like :
+// const sentence = "I love JavaScript, and JavaScript is fun!"
+// এই স্টিং এর মধ্যে "JavaScript" occurence টা দুইবার আছে। 
+
+// sentence.search("JavaScript")
+// ব্রাকেটের ভেতরের অংশটাকে বলা হয় search pattern. এখন এখান দিয়ে স্ট্রিং পাস্ হতে পারে, নাম্বার পাস্ হতে পারে, regular expression পাস্ হতে পারে ইত্যাদি। এখানে search pattern টা একটা স্ট্রিং (JavaScript ). এখানে স্টিংয়ের পাশাপাশি আরো কিছু থাকতে পারে। অর্থাৎ এখানে মাল্টিপল টাইপ search pattern পাস হতে পারে।
+// Ans : search এবং indexOf দিয়ে মূলত ওকি কাজ করা হয়. যেমন : কোনো একটা স্টিং এর মধ্যে occurence দুইবার আছে, search এবং indexOf method ব্যবহার করে first occurence এর first index টা পেতে এই মেথড দুটো ব্যবহার করা হয়। পাৰ্থক্য হচ্ছে, indexOf মেথডে শুধুমাত্র একটা search pattern (string) ব্যবহৃত হয়; আর search মেথডে দুটো search pattern (string & regular expression) ব্যবহার করা যায়। 
+
+// (ii) Given the sentence "I love JavaScript, and JavaScript is fun!", find the index of the first occurrence of "JavaScript".
+const sentence = "I love JavaScript, and JavaScript is fun!";
+console.log(sentence.indexOf("JavaScript"));
+// (iii) Given the sentence "I love JavaScript, and JavaScript is fun!", find the index of the last occurrence of "JavaScript".
+const sentence = "I love JavaScript, and JavaScript is fun!";
+console.log(sentence.lastIndexOf("JavaScript"));
+// (iv) Given the string "I have 2 apples and 5 oranges", find the index of the first digit.
+const text = "I have 2 apples and 5 oranges";
+console.log(text.search(/\d/));
+// (v)  Given the sentence "I love apples and bananas", check if "apple" is in the sentence.
+const sentence = "I love apples and bananas";
+console.log(sentence.indexOf("apple") !== -1);
+
+// (vi) Given the string "cat catapult category catalog", find all the indices where "cat" appears.
+const str = "cat catapult category catalog";
+let index = str.indexOf("cat");     // just check where you find "cat" and give me only that index value
+let indices = [];
+
+while (index !== -1) {
+    indices.push(index);
+    index = str.indexOf("cat", index + 1);
+}
+console.log(indices);
+
+// str.indexOf("cat") এটা মুলত খোঁজা শুরু করে শুন্য ইনডেক্স থেকে, বাট আমরা চাইলে সেটা বলে দিতে পারি search pattern এর ভেতর। 
+// যেমন ঃ str.indexOf("cat", 1); অর্থাৎ ১ ইনডেক্স এর পর থেকে খুঁজতে থাকো কোথায় cat টা পুনরায় আছে, তারপর যেখানে আবার এই cat টা খুঁজে পাবে ঠিক ওই ইনডেক্স টা আবার রিটার্ন করবে, এভাবে আবার পরবর্তী টা খুজার জন্য আমরা ইনডেক্স এর ভ্যালু ১ বাড়িয়ে দেব, মানে (index  + ১) যাতে পরবর্তী আবার খোঁজা শুরু করে যে কোথায় আবার cat পাওয়া যায়। 
+
+// (vii) Given the string "abc12345xyz", find the index of the last digit.
+const str = "abc222533354445xyz";
+console.log(str.lastIndexOf("5"));
+
+// (viii) Given the file path "/users/tanvir/documents/filename.txt", extract the filename "filename.txt"
+const filePath = "/users/tanvir/documents/filename.txt";
+const fileName = filePath.substring(filePath.lastIndexOf("/") + 1);
+console.log(fileName);
+
+// Note: "/" character এর সর্বশেষ occurrence এর index টা হচ্ছে ২৩। আর আমার ফাইলনেম টা শুরু হয়েছে ২৪ নম্বর ইনডেক্স থেকে, এজন্য (filePath.lastIndexOf("/") + 1) দেয়া হয়েছে ফলে (index  + 1) পাওয়া যাবে। আল্টিমেটলি দাঁড়ায় substring(24)। এবং  substring(24) extracts everything from index 24 to the end of the string. 
+
+// (ix) Given the string "skyline", find the index of the first vowel.
+const str = "skyline";
+console.log(str.search(/[aeiou]/)); 
+// Note: এখানে search pattern টা স্ট্রিং নয়, বরং এটা regular expression 
+
+// (x) You are given a number. Write a function that:
+    // - Converts the number to a string using toString().
+    // - Splits the number into individual digits using split().
+    // - Converts each digit to its corresponding word form (like 1 becomes "one", 2 becomes "two", etc.).
+    // - Concatenates the word forms of each digit into a single string using concat().
+    function numberToWords(num) {
+        const digitToWord = {'0': 'zero',
+        '1': 'one',
+        '2': 'two',
+        '3': 'three',
+        '4': 'four',
+        '5': 'five',
+        '6': 'six',
+        '7': 'seven',
+        '8': 'eight',
+        '9': 'nine'}
+
+        // convert number to string
+        const numStr = num.toString();
+
+        // split the numbers into individual digit  
+        const digitsInArray = numStr.split("");
+        const wordArray = digitsInArray.map(digi => digitToWord[digi]);
+        console.log(wordArray); 
+    }
+    numberToWords(4956);
