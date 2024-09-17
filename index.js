@@ -91,7 +91,7 @@ console.log(user['name']);     // bracket notaion
 //    - Declared using the 'function' keyword, followed by a name and a block of code.
 //    - Can be invoked/called from anywhere in the code.
       Example: function add(a, b) {return a + b};
-// 2. Function Expressions:
+// 2. :
 //    - Defined by assigning a function to a variable.
 //    - Can be anonymous or named.
 //    - Not hoisted in the same way as function declarations.
@@ -103,6 +103,28 @@ console.log(user['name']);     // bracket notaion
 // 4. Anonymous Functions:
 //    - Functions without a name, often use as arguments to other functions or assigned to variables.
       Example: const sum = function (a, b) {return a + b};
+
+// Give me usecases for each functions 
+// Traditional Function 
+function calculateArea(width, height) {
+return width * height;
+}
+console.log(calculateArea(5, 10)); // Output: 50
+
+// Function Expression
+const greetUser = function(name) {
+    return `Hello, ${name}!`;
+};
+console.log(greetUser("Tanvir")); // Output: Hello, Tanvir!
+
+// Arrow Function
+const squareNumber = (num) => num * num;
+console.log(squareNumber(4)); // Output: 16
+
+// Anonymous Function
+setTimeout(function() {
+    console.log("This message appears after 2 seconds");
+}, 2000);
 
 // ===============================================================================================
 // 2.7 Template Literals
@@ -286,7 +308,8 @@ function triangleType(a, b, c) {
 console.log(triangleType(1, 2, 3));
 
 
-
+// ==============================     JavaScript Loops    ============================================
+// ===================================================================================================
 
 // Problem - 03: 
 // (i) Find the sum of the numbers from 1 to 10 using for loop
@@ -541,6 +564,9 @@ for(let num of numbers){
 
 
 
+// ==============================     String in JavaScript    =======================================
+// ==================================================================================================
+
 // Problem - 08
 // (i) Write a function that takes a string as input and:
     // - Finds the middle character of the string using charAt().
@@ -744,3 +770,66 @@ console.log(str.search(/[aeiou]/));
         console.log(wordArray); 
     }
     numberToWords(4956);
+
+
+    // Problem - 11
+    (i) slice(), substring() এবং substr() এর মধ্যে পার্থক্য ?
+    // Ans: slice এর মধ্যে যে দুটো parameter আছে সেগুলো অপশনাল, একটাও হতে পারে দুটোও হতে পারে আবার একটাও নাও হতে পারে। কিন্তু subString মেথডের মধ্যে যে দুটো parameter আছে সেগুলো বাধ্যতামূলক, তবে অনলি starting position টা বলে দিলেও হবে, এক্ষেত্রে বাইডিফল্টলি lenght টা পুরোটা নিয়ে নিবে মানে একদম শেষ পর্যন্ত।
+
+    // slice মেথডে প্যারামিটার পসিটিভ বা নেগেটিভও হতে পারে কিন্তু subString মেথডে প্যারামিটার নেগেটিভ হতে পারবে না। slice মেথডে প্যারামিটার দুটোই index প্যারামিটার কিন্তু subString মেথডে প্রথমটা index parameter আর দ্বিতীয়টা length প্যারামিটার।   
+
+    substr(startIndex, length) method ==========
+    // messege.substr(0, 6);
+    // এক্ষেত্রে 0 হচ্ছে starting position এবং 6 হচ্ছে length 
+
+    substring(startIndex, endIndex) method ==========
+    // message.substring(4, 10);
+    // এক্ষেত্রে 0 হচ্ছে starting position এবং 10 হচ্ছে endIndex 
+
+    slice(startIndex, endIndex) method ============
+    // message.slice(0, 6);
+    // অর্থাৎ message string এর 0 index থেকে শুরু করে 6 index এর আগ পর্যন্ত (5 index পর্যন্ত) যে substring টা রয়েছে সেটা তৈরি হবে। 
+
+    // message.slice(3);
+    // এক্ষেত্রে 3 index থেকে শুরু করে একদম শেষ পর্যন্ত string টা আমাদের substring হিসেবে তৈরি হবে। 
+
+    // message.slice();
+    // এক্ষেত্রে 0 index থেকে একদম শেষ পর্যন্ত substring হিসেবে তৈরি হবে যা কিনা মূল string এর সমান। 
+
+    // message.slice(-5, -1);
+    // এক্ষেত্রে একদম শেষের index থেকে শুরু হবে, অর্থাৎ -5 index থেকে শুরু করে -1 index (একদম শেষ index পর্যন্ত)  
+
+    // (ii) You are given the string: "JavaScript is fun!". Write a function that:
+    //      - Extracts the substring "Script" using slice().
+    //      - Extracts the substring "is" using substr().
+    //      - Extracts the substring "fun" using substring().
+    //      - Concatenates these extracted parts into a new string with spaces between them.
+            function extractAndCombine(str) {
+                // step 1: Extract "Script" using slice()
+                const step1 = str.slice(4, 10);
+
+                // step 2: Extract "is" using subStr()
+                const step2 = str.substr(11, 2);
+
+                // step 3: Extract "fun" using substring()
+                const step3 = str.substring(14, 17);
+
+                const result = step1 + " " + step2 + " " + step3;
+                console.log(result);
+            }
+            extractAndCombine("JavaScript is fun!");
+
+    // (iii) What is Escape Sequences ?
+            Escape sequences are special character combinations in strings that represent characters that are difficult or impossible to type directly in code, such as newline, tab, or certain special characters. In most programming languages, escape sequences begin with a backslash (\), examples :
+            (\n: Newline, \t: Tab, \': Single Quote, \": Double Quote, \\: Backslash, \r: Carriage Return, \b: Backspace, \f: Form Feed, \v: Vertical Tab, \u or \x, )
+
+    // (iv) Escape Sequences related problem: Make the string as like mensioned below :
+            - He said, \ "It's a sunny day".
+            - Have a good day.
+            let message = '\tHe said, \\ "It\'s a sunny day".\n Have a nice day.'
+            console.log(message);
+    // (v) String Immutability কি ?
+         // কোনো একটা স্ট্রিং এর মধ্যে যদি আমরা নির্দিষ্ট কোনো অংশে পরিবর্তন আনতে চাই তাহলে সেটা সম্ভব নয়, যদি পরিবর্তন আনতেই হয় তাহলে পরিবর্তিত অংশ সহ মডিফাইড নতুন স্ট্রিংটা ঐ ভারিয়াবলের মধ্যে assign করতে হবে। যেহেতু স্টিংয়ের নির্দিষ্ট কোনো অংশে আলাদা করে পরিবর্তন আনার কোনো সুযোগ নেই, এজন্য স্ট্রিংয়ের এই বৈশিষ্ট টাকে বলা হয় String Immutability.
+         যেমনঃ 
+         let message = "Jello World"; 
+         message = "Hello World";  // assign a new string to the variable 
