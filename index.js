@@ -993,3 +993,13 @@ const copiedUser = { ...user };
 
 // see the object in console
 console.log(copiedUser);
+
+// (xi) JSON কি ? কেন ব্যবহার করি ? এবং JSON format এ কোন দুটো জিনিস সাপোট করে না ?
+উত্তরঃ আমরা মূলত Client to Server & Server to Client ডাটা কমিউনিকেশনের ক্ষেত্রে JSON Data format ব্যবহার করে থাকি। JSON Data format এর  মধ্যে কোন প্রপার্টির ভালু Undefined / Function রাখতে পারবো না। অর্থাৎ JSON data format এর মধ্যে আমরা শুধু মাত্র পিউর ডেটা রাখতে পারবো।
+উদাহরণ -
+    const user = {
+        "name": 'John',
+        "age": 47,
+        "location": undefined // not correct, it will not support
+        "location": function() {}  // not correct, it will not support
+    }
