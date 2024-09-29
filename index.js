@@ -967,3 +967,29 @@ const {
         name: clinicName,
         address: { long, lat },
     } } = docObject;
+
+// (x) কি কি উপায়ে আমরা একটি অবজেক্টকে ক্লোন করতে পারি ? উদাহরণসহ দেখাও।
+const user = {
+    name: 'john',
+    age: 24,
+};
+
+// First way to clone
+const copiedUser = {};
+copiedUser.name = user.name;
+copiedUser.age = user.age;
+
+// Second way to clone
+for (let key in user) {
+    console.log(key, user[key]);
+    copiedUser[key] = user[key];
+}
+
+// Third way to clone 
+const copiedUser = Object.assign({}, user);
+
+// Fourth way to clone
+const copiedUser = { ...user };
+
+// see the object in console
+console.log(copiedUser);
