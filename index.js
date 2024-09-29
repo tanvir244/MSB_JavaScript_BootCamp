@@ -833,3 +833,137 @@ console.log(str.search(/[aeiou]/));
          যেমনঃ 
          let message = "Jello World"; 
          message = "Hello World";  // assign a new string to the variable 
+
+
+
+
+// ============================== Object in JavaScript =======================================
+// ===========================================================================================
+
+// Object manipulation:
+// (i) object manipulation বলতে কি বুঝায় ?
+উত্তরঃ অর্থাৎ কোন একটা অবজেক্টকে নিজের মত করে মডিফাই করা যেমন অবজেক্টটির কোন প্রপার্টির ভালু আপডেট করা, নতুন করে অ্যাড করা বা ডিলিট করা। নিচে উদাহরণ দেয়া হলঃ 
+let user = {
+    name: "John",
+    age: 47,
+    isMarried: true
+}
+
+// Add 
+user.email = "john@gmail.com";     // by dot notation
+user['phone'] = '01776385180';     // by bracket notation
+
+// Update 
+user.isMarried = false;
+user.age = user.age + 3;
+
+// Delete
+delete user.age;
+
+// (ii) Object manipulation  এর ক্ষেত্রে কখন আমরা ডট নোটেশন ব্যবহার করবো আর কখন ব্রাকেট নোটেশন ব্যবহার করবো ?
+Ans: যখন প্রপার্টি নেমটা ইনভ্যালিড ভ্যারিয়েবল (যেমন: first-name এরকম টাইপ প্রপার্টি ইনভ্যালিড ভ্যারিয়েবল) হবে তখন ব্রাকেট নোটেশন আর যখন ভ্যালিড ভ্যারিয়েবল (firstName) তখন ডট নোটেশন হবে। বিস্তারিতঃ ভিডিও [7.1]
+
+// (iii) কোন একটা অবজেক্টের ভেতর প্রপার্টি হিসেবে আমরা যখন একটা ফাংশন রাখবো তখন সেটাকে কি প্রপার্টি বলা যাবে ?
+Ans: উত্তরঃ না, তখন সেটাকে প্রপার্টির পরিবর্তে বলতে হবে মেথড অর্থাৎ অবজেক্ট টির মেথড।
+
+// (iv) অবজেক্টের মেথড হিসেবে যে ফাংশনটা থাকে সেটা কি ধরণের ফাংশন ?
+উত্তরঃ Function Expression. 
+
+// (v) this keyword এর ব্যবহার সম্পর্কে বলো ?
+উত্তরঃ যখন আমরা কোনো অবজেক্টের মেথডের ভেতরে ওই অবজেক্টের কোনো প্রপার্টি বা মেথড, এক্সেস করতে চাইবো তখন সেই প্রপার্টির বা মেথডের আগে this keyword ব্যবহার করতে হবে। যেমনঃ 
+const user = {
+    name: "john",
+    age: 50,
+    isMarried: true,
+    friends: ["Mary", "Smith"],
+    calculateAge: function () {
+        console.log(`I am ${this.age} years old!`);
+    }
+}
+user.calculateAge();
+
+// (vi) একটা object এর keys এবং values গুলো traversing করে আমরা কীভাবে পেতে পারি, দুটি উপায়ে দেখাও।
+const user = {
+    name: "john",
+    age: 47,
+    gender: "male",
+    email: "john@gmail.com",
+    phone: "01776311111",
+}
+
+// way 1
+for(let key in user){
+    console.log(key, user[key]);
+}
+
+// // way 2
+console.log(Object.keys(user));     // এক্ষেত্রে সবগুলো keys একটা array র ভেতরে element হিসেবে পাওয়া যাবে। 
+console.log(Object.values(user));    //  এক্ষেত্রে সবগুলো keys একটা array র ভেতরে element হিসেবে পাওয়া যাবে।
+
+for (let key of Object.keys(user)) {
+    console.log(key);
+}
+
+for (let val of Object.values(user)) {
+    console.log(val);
+}
+
+// (vii) একটা অবজেক্টের ভেতর সবার সেলারি গুলোর যোগফল নির্ণয় কর। 
+const salaries = {
+    john: 200,
+    smith: 300,
+    marry: 400,
+    carlos: 500,
+    roberty: 600,
+}
+
+let sum = 0;
+for(let key in salaries) {
+    console.log(key, salaries[key]);
+    // sum = sum + salaries[key];
+    sum += salaries[key];
+}
+console.log("Total Salaries:", sum);
+
+// (viii) Object Destracturing - এর ক্ষেত্রে কোনো কোনো সময় ভ্যারিয়েবলের নাম rename করতে হয় কেন ?
+// উত্তরঃ যদি কোন ভারিয়াবলের নাম সেম হয়ে যায় তাহলে রিনেম করতে হয় যা নিচে উদারহন দেয়া হলো।
+const user = {
+    name: 'john', 
+    age: 47,
+    favBook: {
+        name: 'Normal People', 
+        author: 'Sally Rooney'
+    },
+}
+
+const {name, age, favBook} = user;
+const {name: title, author} = favBook; // যেহেতু name একবার আক্সেস করা হয়েছে, কাজেই এখন আবার এটা একই নামে একসেস করা যাবে না, এজন্য name টাকে রিনেম করে title নাম দেয়া হলো।
+
+console.log(name, age, title, author);
+
+// (ix) কীভাবে ইফিশিয়েন্ট ওয়েতে object distructuring করা যায় উদাহরণ দাও। 
+const docObject = {
+    name: 'john',
+    designation: 'kidney specialist',
+    clinic: {
+        name: 'Happy care center',
+        address: {
+            long: 23.66,
+            lat: 90.44,
+        },
+    },
+};
+
+// general way
+const { name, designation, clinic } = docObject;
+const { name: clinicName, address } = clinic;
+const { long, lat } = address;
+
+// efficient way 
+const {
+    name,
+    designation,
+    clinic: {
+        name: clinicName,
+        address: { long, lat },
+    } } = docObject;
