@@ -3,6 +3,30 @@ Sakib Sir
 
 // ============================================  Variable and Data Types ===========================================
 // =================================================================================================================
+// 1.1 //There are three way to declare variables such as var, let, const .
+//Example of var :
+var name = "Sara";
+name = "Tom";                                       ////reassign
+console.log(name);
+
+//Example of let :
+let age = 40;
+age = 45;                                          ////reassign
+console.log(age);
+
+//Example of const :
+const city = ["Dhaka", "Barisal", 40 ,50];         ////const can't reassign
+console.log(city);
+
+const town = ["Dhaka", "Barisal", 40 ,50];
+town.push(70);                                     ////const can't reassign but it can modify
+console.log(town);
+
+const capital = ["Dhaka" ,"Barisal" ,40 ,50];
+capital.pop();                                     ////const can't reassign but it can modify
+console.log(capital);
+
+
 // 2.3 Primitive Data types
 
 // How many types of data are there in JS ? Ans: Two types, for example Primitive and Non-primitive.
@@ -994,7 +1018,24 @@ const copiedUser = { ...user };
 // see the object in console
 console.log(copiedUser);
 
-// (xi) JSON কি ? কেন ব্যবহার করি ? এবং JSON format এ কোন দুটো জিনিস সাপোট করে না ?
+// (xi) //Math Object
+value = Math.PI;
+value = Math.round(7.3);
+value = Math.ceil(7.3);
+value = Math.floor(2.9);
+value = Math.sqrt(16);
+value = Math.pow(2, 3);
+value = Math.abs(-5);
+value = Math.min(2, 6, 9, 12, 16, 20);
+value = Math.max(2, 6, 9, 12, 16, 20);
+
+value = Math.random() * 100;
+value = Math.floor(value) + 1;
+
+//Output
+console.log(value);
+
+// (xii) JSON কি ? কেন ব্যবহার করি ? এবং JSON format এ কোন দুটো জিনিস সাপোট করে না ?
 উত্তরঃ আমরা মূলত Client to Server & Server to Client ডাটা কমিউনিকেশনের ক্ষেত্রে JSON Data format ব্যবহার করে থাকি। JSON Data format এর  মধ্যে কোন প্রপার্টির ভালু Undefined / Function রাখতে পারবো না। অর্থাৎ JSON data format এর মধ্যে আমরা শুধু মাত্র পিউর ডেটা রাখতে পারবো।
 উদাহরণ -
     const user = {
