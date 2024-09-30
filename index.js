@@ -3,7 +3,7 @@ Sakib Sir
 
 // ============================================  Variable and Data Types ===========================================
 // =================================================================================================================
-// 1.1 //There are three way to declare variables such as var, let, const .
+1. Variable - কি ? var, let এবং const এর পার্থক্য ?
 //Example of var :
 var name = "Sara";
 name = "Tom";                                       ////reassign
@@ -27,12 +27,10 @@ capital.pop();                                     ////const can't reassign but 
 console.log(capital);
 
 
-// 2.3 Primitive Data types
+2. How many types of data are there in JS ? Explain all types ?
+Ans: Two types, for example Primitive and Non-primitive.
 
-// How many types of data are there in JS ? Ans: Two types, for example Primitive and Non-primitive.
-// How many Primitive Types of Data are available in JS ? Explain all types ?
-// Ans: Seven primitive data types available in JavaScript : 
-
+Ans: Seven primitive data types available in JavaScript : 
 // 01: String Type
 let name = 'john';
 console.log(typeof name);     
@@ -87,7 +85,7 @@ const user = {
 console.log(user.name);      // dot notaion
 console.log(user['name']);     // bracket notaion
 
-// ============================================================================================
+// ===================================================
 // 2.5 Reference Data types - Array
 // why Array uses ? What do those items called inside an Array ? 
 // Ans: To store a list of data like object, string or number. The items inside an array are called elements.
@@ -97,7 +95,7 @@ console.log(user['name']);     // bracket notaion
 // What data type is Array ? What are the specifications of object ?
 // Ans: Array is an Object data type. If something is an Object, that means obviously it has some Properties and Methods.
 
-// ============================================================================================
+// ===================================================
 // 2.6 Reference Data types - Function
 // What is Function and describe its all component ?
 // Ans: Function is a reusable block of code that performs a specific task or set of tasks. 
@@ -150,7 +148,7 @@ setTimeout(function() {
     console.log("This message appears after 2 seconds");
 }, 2000);
 
-// ===============================================================================================
+// ===================================================
 // 2.7 Template Literals
 // Waht is Template Literals in JS ?
 // Ans: Template Literals are a feature introduced in ECMAScript6 that allows for more flexible string interpolation in JS.
